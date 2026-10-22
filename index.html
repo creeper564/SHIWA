@@ -1,0 +1,305 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#d9f6f0">
+  <meta name="description" content="Découvre Shiwa, une communauté pour discuter, partager ses passions et rencontrer de nouvelles personnes.">
+  <title>Shiwa — Ton petit monde</title>
+  <script>
+    (function(){try{var c=JSON.parse(localStorage.getItem("shiwa:theme"));if(!c)c="auto";
+    var d=c==="dark"||(c==="auto"&&matchMedia("(prefers-color-scheme: dark)").matches);
+    document.documentElement.dataset.theme=d?"dark":"light";}catch(e){}
+    document.documentElement.classList.add("js");})();
+  </script>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+
+  <canvas id="petals" aria-hidden="true"></canvas>
+  <div class="progress" id="progress" aria-hidden="true"></div>
+
+  <button class="gear-btn" id="gear-btn" aria-label="Ouvrir les réglages"
+    aria-expanded="false" aria-controls="settings">⚙</button>
+  <aside class="settings" id="settings" hidden aria-label="Réglages du site">
+    <h2>Réglages</h2>
+    <p class="settings-label">Apparence</p>
+    <div class="segmented" role="group" aria-label="Thème">
+      <button type="button" data-theme-choice="light">☀ Clair</button>
+      <button type="button" data-theme-choice="dark">☾ Sombre</button>
+      <button type="button" data-theme-choice="auto">◐ Auto</button>
+    </div>
+    <div class="switch-row">
+      <span>Pétales de sakura</span>
+      <button type="button" class="switch" id="petals-switch" role="switch" aria-checked="true" aria-label="Pétales de sakura"></button>
+    </div>
+    <p class="egg-count" id="egg-count"></p>
+  </aside>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <header class="navbar">
+    <a class="brand" href="#accueil">
+      <span class="brand-icon">花</span>
+      <span>SHIWA<span class="brand-dot">.</span></span>
+    </a>
+
+    <button class="menu-toggle" id="menu-toggle"
+      aria-label="Ouvrir le menu" aria-expanded="false">
+      ☰
+    </button>
+
+    <nav class="nav-links" id="nav-links">
+      <a href="#decouvrir">Découvrir</a>
+      <a href="#roles">Les rôles</a>
+      <a href="#salons">Les salons</a>
+      <a href="#faq">FAQ</a>
+      <a class="nav-join" href="#rejoindre">Rejoindre ↗</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="accueil">
+      <div class="hero-decoration sakura sakura-one">✿</div>
+      <div class="hero-decoration sakura sakura-two">❀</div>
+      <div class="hero-content">
+        <span class="eyebrow">🌸 TON PETIT MONDE SUR DISCORD</span>
+        <h1>Bienvenue<br>chez <span>Shiwa.</span></h1>
+        <p>
+          Un endroit pour discuter de tout, partager ses passions
+          et rencontrer de nouvelles personnes.
+        </p>
+        <div class="hero-actions">
+          <a class="button button-primary" href="#rejoindre">
+            Découvrir Shiwa <span>↗</span>
+          </a>
+          <a class="button button-secondary" href="#decouvrir">
+            Explorer le guide ↓
+          </a>
+        </div>
+        <div class="hero-note">
+          <span class="online-dot"></span>
+          Un petit monde où chacun a sa place.
+        </div>
+      </div>
+      <div class="hero-art" aria-label="Illustration japonaise">
+        <div class="art-sun"></div>
+        <div class="art-mountain mountain-back"></div>
+        <div class="art-mountain mountain-front"></div>
+        <div class="art-water"></div>
+        <div class="art-branch">✿　❀　✿</div>
+        <div class="art-caption">
+          <span>紫波 · SHIWA</span>
+          <small>Un monde à partager</small>
+        </div>
+      </div>
+      <a class="scroll-hint" href="#decouvrir">DÉFILER POUR EXPLORER ↓</a>
+    </section>
+
+    <section class="live-strip" id="live" aria-label="Statistiques en direct">
+      <div class="live-card">
+        <span class="live-badge"><i class="online-dot"></i>EN DIRECT</span>
+        <div class="live-stat"><strong data-stat="members">—</strong><span>membres</span></div>
+        <div class="live-stat"><strong data-stat="online">—</strong><span>en ligne maintenant</span></div>
+        <small id="live-status">Connexion à Discord…</small>
+      </div>
+    </section>
+
+    <section class="section intro-section" id="decouvrir">
+      <div class="section-heading">
+        <span class="eyebrow">はじめまして · ENCHANTÉ</span>
+        <h2>Bien plus qu'un serveur.</h2>
+        <p>
+          Shiwa est une communauté où tu peux être toi-même.
+          Que tu aimes le Japon, le dessin, les animés ou simplement
+          discuter, tu es le bienvenu.
+        </p>
+      </div>
+
+      <div class="interest-grid">
+        <article class="interest-card pink-card">
+          <span class="interest-icon">🎨</span>
+          <h3>Dessin & créativité</h3>
+          <p>Partage tes créations, découvre des artistes et progresse à ton rythme.</p>
+        </article>
+        <article class="interest-card mint-card">
+          <span class="interest-icon">🌸</span>
+          <h3>Animés & mangas</h3>
+          <p>Parle de tes œuvres préférées et découvre de nouvelles recommandations.</p>
+        </article>
+        <article class="interest-card lilac-card">
+          <span class="interest-icon">🇯🇵</span>
+          <h3>Culture japonaise</h3>
+          <p>Échange autour du Japon, de ses traditions et de ses inspirations.</p>
+        </article>
+        <article class="interest-card cream-card">
+          <span class="interest-icon">💬</span>
+          <h3>Discussions libres</h3>
+          <p>Musique, jeux, quotidien et autres passions : on peut parler de tout.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="community-banner">
+      <span class="eyebrow">YOUR SPACE · TON ESPACE</span>
+      <h2>Pas besoin d'aimer les animés<br>pour trouver ta place.</h2>
+      <p>
+        Ce qui compte, c'est le respect, la bonne humeur
+        et l'envie de partager de bons moments.
+      </p>
+      <a class="button button-primary" href="#rejoindre">Trouver ma place ↗</a>
+    </section>
+
+    <section class="section" id="roles">
+      <div class="section-heading">
+        <span class="eyebrow">LES PERSONNES DE SHIWA</span>
+        <h2>Les rôles du serveur</h2>
+        <p>Chaque rôle a son importance dans la vie de la communauté.</p>
+      </div>
+
+      <div class="role-grid">
+        <article class="role-card">
+          <span class="role-icon">👑</span>
+          <div><h3>Fondateur</h3><p>Responsable principal du serveur.</p></div>
+        </article>
+        <article class="role-card">
+          <span class="role-icon">🌸</span>
+          <div><h3>Co-fondateur</h3><p>Participe aux décisions importantes.</p></div>
+        </article>
+        <article class="role-card">
+          <span class="role-icon">🛡️</span>
+          <div><h3>Administrateur</h3><p>Gère le serveur et son organisation.</p></div>
+        </article>
+        <article class="role-card">
+          <span class="role-icon">🔨</span>
+          <div><h3>Modérateur</h3><p>Veille au respect du règlement.</p></div>
+        </article>
+        <article class="role-card">
+          <span class="role-icon">🧸</span>
+          <div><h3>Helper</h3><p>Aide les nouveaux membres.</p></div>
+        </article>
+        <article class="role-card">
+          <span class="role-icon">🌱</span>
+          <div><h3>Nouveau</h3><p>Pour les personnes qui viennent d'arriver.</p></div>
+        </article>
+        <article class="role-card">
+          <span class="role-icon">🌷</span>
+          <div><h3>Shiwa</h3><p>Le rôle principal de la communauté.</p></div>
+        </article>
+        <article class="role-card">
+          <span class="role-icon">💎</span>
+          <div><h3>Mizū</h3><p>Récompense la participation régulière.</p></div>
+        </article>
+        <article class="role-card">
+          <span class="role-icon">🌙</span>
+          <div><h3>Yoru</h3><p>Distingue les membres habitués.</p></div>
+        </article>
+        <article class="role-card">
+          <span class="role-icon">⭐</span>
+          <div><h3>OG Shiwa</h3><p>Un rôle spécial pour les premiers membres.</p></div>
+        </article>
+        <article class="role-card">
+          <span class="role-icon">✨</span>
+          <div><h3>Hikari</h3><p>Une récompense lors d'événements spéciaux.</p></div>
+        </article>
+      </div>
+      <p class="small-note">
+        Les rôles et leurs conditions d'obtention peuvent évoluer.
+        Consulte les informations sur Discord pour connaître les conditions exactes.
+      </p>
+    </section>
+
+    <section class="section channels-section" id="salons">
+      <div class="section-heading">
+        <span class="eyebrow">UN PETIT TOUR DU SERVEUR</span>
+        <h2>Où commencer ?</h2>
+        <p>Voici quelques salons pour prendre tes repères sur Shiwa.</p>
+      </div>
+
+      <div class="channel-list">
+        <article class="channel-item">
+          <span class="channel-icon">👋</span>
+          <div><h3>bienvenue</h3><p>Découvre les premières informations.</p></div>
+          <span class="channel-tag">DÉPART</span>
+        </article>
+        <article class="channel-item">
+          <span class="channel-icon">📋</span>
+          <div><h3>règlement</h3><p>Les règles pour partager un espace agréable.</p></div>
+          <span class="channel-tag">À LIRE</span>
+        </article>
+        <article class="channel-item">
+          <span class="channel-icon">💬</span>
+          <div><h3>général</h3><p>Le salon pour discuter librement.</p></div>
+          <span class="channel-tag">DISCUSSION</span>
+        </article>
+        <article class="channel-item">
+          <span class="channel-icon">🌺</span>
+          <div><h3>présentations</h3><p>Fais connaissance avec les autres membres.</p></div>
+          <span class="channel-tag">RENCONTRES</span>
+        </article>
+        <article class="channel-item">
+          <span class="channel-icon">🖼️</span>
+          <div><h3>galerie</h3><p>Montre tes dessins et tes inspirations.</p></div>
+          <span class="channel-tag">CRÉATIVITÉ</span>
+        </article>
+        <article class="channel-item">
+          <span class="channel-icon">🎉</span>
+          <div><h3>événements</h3><p>Retrouve les activités de la communauté.</p></div>
+          <span class="channel-tag">ANIMATIONS</span>
+        </article>
+      </div>
+      <p class="small-note">
+        Les noms affichés sont ceux du guide. Certains salons peuvent évoluer
+        selon l'organisation du serveur.
+      </p>
+    </section>
+
+    <section class="section faq-section" id="faq">
+      <div class="section-heading">
+        <span class="eyebrow">LES QUESTIONS FRÉQUENTES</span>
+        <h2>Tu te demandes encore ?</h2>
+      </div>
+
+      <details class="faq-item">
+        <summary>Faut-il aimer les animés pour rejoindre Shiwa ?</summary>
+        <p>Pas du tout ! Shiwa est ouvert aux personnes qui souhaitent discuter de tout et partager leurs passions.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Comment obtenir les rôles ?</summary>
+        <p>Consulte le salon des rôles sur Discord et les informations données par l'équipe.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Est-ce que je peux partager mes dessins ?</summary>
+        <p>Oui, tu peux utiliser le salon prévu à cet effet et respecter les règles de partage.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Je suis timide, je peux quand même venir ?</summary>
+        <p>Bien sûr ! Tu peux prendre ton temps, lire les discussions et participer quand tu te sens à l'aise.</p>
+      </details>
+    </section>
+
+    <section class="join-section" id="rejoindre">
+      <div class="join-flower">🌸</div>
+      <span class="eyebrow">LA PORTE EST OUVERTE</span>
+      <h2>Et si tu nous rejoignais ?</h2>
+      <p>De nouvelles rencontres, des passions à partager et de bons moments t'attendent.</p>
+      <a class="button button-light" id="discord-link"
+        href="https://discord.gg/QnR66ynzQf" target="_blank" rel="noopener noreferrer">
+        Rejoindre Shiwa sur Discord ↗
+      </a>
+      <small>Pense à remplacer le lien par l'invitation de ton serveur.</small>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <a class="brand" href="#accueil">
+      <span class="brand-icon">花</span>
+      <span>SHIWA<span class="brand-dot">.</span></span>
+    </a>
+    <p>Fait avec douceur pour la communauté Shiwa 🌸</p>
+    <a href="#accueil">Retour en haut ↑</a>
+  </footer>
+
+</body>
+</html>
