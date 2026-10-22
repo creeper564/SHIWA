@@ -837,3 +837,8 @@ h1, h2 { font-family: 'Quicksand', 'Nunito', sans-serif; }
 .art-mountain, .art-water, .art-branch { pointer-events: none; }
 .art-sun { z-index: 1; cursor: pointer; transition: transform .2s; }
 .art-sun:active { transform: translateX(-50%) scale(.94); }
+
+/* Mentions légales */
+.footer-legal { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 6px 20px; padding: 16px 7% 22px; border-top: 1px solid var(--line); color: var(--muted); font-size: .78rem; }
+.footer-legal strong { color: var(--pink-dark); font-weight: 900; }
+@media (max-width: 700px) { .footer-legal { flex-direction: column; text-align: center; padding-bottom: 88px; } }
